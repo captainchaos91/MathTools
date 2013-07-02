@@ -81,7 +81,7 @@ public class Vector {
 	 * @param vecA - the vector receiving the new values.
 	 * @param vecB - the vector containing the values to copy.
 	 */
-	public static void copyValues(Vector vecA, Vector vecB) {
+	public void copyValues(Vector vecA, Vector vecB) {
 		int vals;
 		if (vecA.getLength() <= vecB.getLength())
 			vals = vecA.getLength();
@@ -92,8 +92,64 @@ public class Vector {
 		}
 	}
 	
-	public static void main(String[] args) {
-		
+	/**
+	 * Adds the given vector to the calling vector.
+	 * @param vec - the vector to add to the calling vector.
+	 * @return - the result of the addition as a new Vector-Object.
+	 * @throws ArrayIndexOutOfBoundsException
+	 */
+	public Vector add(Vector vec) throws ArrayIndexOutOfBoundsException {
+		Vector result = new Vector(this.getLength());
+		if (this.getLength() == vec.getLength())	
+		{
+			for (int i = 0; i < vec.getLength(); i++) {
+				result.setAt(i, this.getAt(i) + vec.getAt(i));
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("ERROR: Can't add those vectors because their length isn't equal! ");
+		}
+		return result;
 	}
-
+	
+	/**
+	 * Subtracts the given vector from the calling vector.
+	 * @param vec - the vector to subtract from the calling vector.
+	 * @return - the result of the subtraction as a new Vector-Object.
+	 * @throws ArrayIndexOutOfBoundsException
+	 */
+	public Vector sub(Vector vec) throws ArrayIndexOutOfBoundsException {
+		Vector result = new Vector(this.getLength());
+		if (this.getLength() == vec.getLength())	
+		{
+			for (int i = 0; i < vec.getLength(); i++) {
+				result.setAt(i, this.getAt(i) - vec.getAt(i));
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("ERROR: Can't sub those vectors because their length isn't equal! ");
+		}
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		for (int i = 0; i < this.getLength(); i++) {
+			result += this.getAt(i) + "\n";
+		}
+		return result;
+	}
+	
+	/**
+	 * Sets all values of the calling vector to the given value.
+	 * @param value - the value to set all values to.
+	 */
+	public void fill(double value) {
+		for (int i = 0; i < this.getLength(); i++) {
+			this.setAt(i, value);
+		}
+	}
 }
