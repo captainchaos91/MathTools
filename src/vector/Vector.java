@@ -49,7 +49,7 @@ public class Vector {
 	}
 	
 	/**
-	 * Returns the length of the calling vector.
+	 * Returns the length (number of elements) of the calling vector.
 	 */
 	public int getLength() {
 		return this.len;
@@ -151,5 +151,17 @@ public class Vector {
 		for (int i = 0; i < this.getLength(); i++) {
 			this.setAt(i, value);
 		}
+	}
+	
+	/**
+	 * Gets the euclidean norm of the calling vector.
+	 * @return - the result of the euclidean norm.
+	 */
+	public double getEuclideanNorm() {
+		double sum = 0;
+		for (int i = 0; i < this.getLength(); i++) {
+			sum += Math.pow(this.getAt(i), 2);
+		}
+		return Math.sqrt(sum);
 	}
 }
