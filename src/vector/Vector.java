@@ -8,6 +8,7 @@ package vector;
  * @version 1.0.0-0001
  *
  */
+
 public class Vector {
 	
 	private int len;
