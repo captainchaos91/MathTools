@@ -135,15 +135,6 @@ public class Vector {
 		return result;
 	}
 	
-	@Override
-	public String toString() {
-		String result = "";
-		for (int i = 0; i < this.getLength(); i++) {
-			result += this.getAt(i) + "\n";
-		}
-		return result;
-	}
-	
 	/**
 	 * Sets all values of the calling vector to the given value.
 	 * @param value - the value to set all values to.
@@ -154,6 +145,16 @@ public class Vector {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		String result = "";
+		for (int i = 0; i < this.getLength(); i++) {
+			result += this.getAt(i) + "\n";
+		}
+		return result;
+	}
+	
+
 	/**
 	 * Gets the euclidean norm of the calling vector.
 	 * @return - the result of the euclidean norm.
